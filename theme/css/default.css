@@ -241,7 +241,7 @@ body {
 /* line 98, ../scss/default.scss */
 slides > slide {
   display: none;
-  font-family: "Open Sans", Arial, sans-serif;
+  font-family: 'Open Sans', Arial, sans-serif;
   font-size: 26px;
   color: #797979;
   width: 900px;
@@ -326,11 +326,6 @@ slides > slide:not(.nobackground):after {
 /* line 194, ../scss/default.scss */
 slides > slide.title-slide:after {
   content: '';
-  background: url(../../images/io2012_logo.png) no-repeat 100% 50%;
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  background-size: contain;
   position: absolute;
   bottom: 40px;
   right: 40px;
@@ -531,7 +526,7 @@ ul ul {
 
 /* line 373, ../scss/default.scss */
 pre {
-  font-family: "Source Code Pro", "Courier New", monospace;
+  font-family: 'Source Code Pro', 'Courier New', monospace;
   font-size: 20px;
   line-height: 28px;
   padding: 10px 0 10px 60px;
@@ -567,7 +562,7 @@ pre[data-lang="go"] {
 /* line 404, ../scss/default.scss */
 code {
   font-size: 95%;
-  font-family: "Source Code Pro", "Courier New", monospace;
+  font-family: 'Source Code Pro', 'Courier New', monospace;
   color: black;
 }
 
