@@ -316,8 +316,8 @@ SlideDeck.prototype.loadConfig_ = function(config) {
 
   if (settings.title) {
     document.title = settings.title.replace(/<br\/?>/, ' ');
-    if (settings.eventTitle) {
-      document.title +=  ' - ' + settings.eventTitle;
+    if (settings.eventInfo && settings.eventInfo.title) {
+      document.title +=  ' - ' + settings.eventInfo.title;
     }
     document.querySelector('[data-config-title]').innerHTML = settings.title;
   }
@@ -334,7 +334,11 @@ SlideDeck.prototype.loadConfig_ = function(config) {
     if (presenters.length == 1) {
       var p = presenters[0];
 
-      html = [p.name, p.company].join('<br>');
+      var presenterTitle = [p.name];
+      if (p.company) {
+        presenterTitle.push(p.company);
+      }
+      html = presenterTitle.join(' - ') + '<br>';
 
       var gplus = p.gplus ? '<span>g+</span><a href="' + p.gplus +
           '">' + p.gplus.replace(/https?:\/\//, '') + '</a>' : '';
@@ -367,9 +371,10 @@ SlideDeck.prototype.loadConfig_ = function(config) {
     var dataConfigPresenter = document.querySelector('[data-config-presenter]');
     if (dataConfigPresenter) {
       dataConfigPresenter.innerHTML = html;
-      if (settings.eventTitle) {
-        dataConfigPresenter.innerHTML = dataConfigPresenter.innerHTML + '<br>' +
-                                        settings.eventTitle;
+      if (settings.eventInfo) {
+        var date = settings.eventInfo.date;
+        var dateInfo = date ? ' - <time>' + date + '</time>' : '';
+        dataConfigPresenter.innerHTML += settings.eventInfo.title + dateInfo;
       }
     }
   }
