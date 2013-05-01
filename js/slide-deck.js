@@ -102,13 +102,16 @@ SlideDeck.prototype.onDomLoaded_ = function(e) {
 
   // Note: this needs to come after addEventListeners_(), which adds a
   // 'keydown' listener that this controller relies on.
-  // Also, no need to set this up if we're on mobile.
-  if (!Modernizr.touch) {
+
+  // Modernizr.touch isn't a sufficient check for devices that support both
+  // touch and mouse. Create the controller in all cases.
+  // // Also, no need to set this up if we're on mobile.
+  // if (!Modernizr.touch) {
     this.controller = new SlideController(this);
     if (this.controller.isPopup) {
       document.body.classList.add('popup');
     }
-  }
+  //}
 };
 
 /**
