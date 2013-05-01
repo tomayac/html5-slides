@@ -65,7 +65,7 @@ SlideDeck.prototype.loadSlide = function(slideNo) {
 SlideDeck.prototype.onDomLoaded_ = function(e) {
   document.body.classList.add('loaded'); // Add loaded class for templates to use.
 
-  this.slides = this.container.querySelectorAll('slide:not([hidden]):not(.backdrop)');
+  this.slides = this.container.querySelectorAll('slide:not([hidden]):not(.hidden):not(.backdrop)');
 
   // If we're on a smartphone, apply special sauce.
   if (Modernizr.mq('only screen and (max-device-width: 480px)')) {
