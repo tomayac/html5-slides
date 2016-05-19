@@ -20,6 +20,47 @@ URL: https://code.google.com/p/io-2012-slides
   <link rel="stylesheet" media="all" href="theme/css/default.css">
   <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
   <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script>
+    var SLIDE_CONFIG = {
+      // Slide settings
+      settings: {
+        title: '{{title}}',
+        subtitle: '{{subtitle}}',
+        //eventInfo: {
+        //  title: 'Google I/O',
+        //  date: '6/x/2013'
+        //},
+        useBuilds: true, // Default: true. False will turn off slide animation builds.
+        usePrettify: true, // Default: true
+        enableSlideAreas: true, // Default: true. False turns off the click areas on either slide of the slides.
+        enableTouch: true, // Default: true. If touch support should enabled. Note: the device must support touch.
+        //analytics: 'UA-XXXXXXXX-1', // TODO: Using this breaks GA for some reason (probably requirejs). Update your tracking code in template.html instead.
+        favIcon: '{{favicon}}',
+        fonts: [
+          'Open Sans:regular,semibold,italic,italicsemibold',
+          'Source Code Pro'
+        ],
+        //theme: ['mytheme'], // Add your own custom themes or styles in /theme/css. Leave off the .css extension.
+      },
+
+      // Author information
+      presenters: [{
+        name: '{{name}}',
+        company: '{{company}}',
+        gplus: '{{gplus}}',
+        twitter: '{{twitter}}',
+        www: '{{url}}',
+        github: '{{github}}'
+      }/*, {
+        name: 'Second Name',
+        company: 'Job Title, Google',
+        gplus: 'http://plus.google.com/1234567890',
+        twitter: '@yourhandle',
+        www: 'http://www.you.com',
+        github: 'http://github.com/you'
+      }*/]
+    };
+  </script>
   <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
 </head>
 <body style="opacity: 0">

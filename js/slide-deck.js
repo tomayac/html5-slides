@@ -128,11 +128,11 @@ SlideDeck.prototype.addEventListeners_ = function() {
   //   'msTransition': 'MSTransitionEnd',
   //   'transition': 'transitionend'
   // };
-  // 
+  //
   // // Find the correct transitionEnd vendor prefix.
   // window.transEndEventName = transEndEventNames[
   //     Modernizr.prefixed('transition')];
-  // 
+  //
   // // When slides are done transitioning, kickoff loading iframes.
   // // Note: we're only looking at a single transition (on the slide). This
   // // doesn't include autobuilds the slides may have. Also, if the slide
@@ -320,7 +320,7 @@ SlideDeck.prototype.loadConfig_ = function(config) {
   if (settings.title) {
     document.title = settings.title.replace(/<br\/?>/, ' ');
     if (settings.eventInfo && settings.eventInfo.title) {
-      document.title +=  ' - ' + settings.eventInfo.title;
+      document.title +=  ' — ' + settings.eventInfo.title;
     }
     document.querySelector('[data-config-title]').innerHTML = settings.title;
   }
@@ -341,7 +341,7 @@ SlideDeck.prototype.loadConfig_ = function(config) {
       if (p.company) {
         presenterTitle.push(p.company);
       }
-      html = presenterTitle.join(' - ') + '<br>';
+      html = presenterTitle.join(' — ') + '<br>';
 
       var gplus = p.gplus ? '<span>g+</span><a href="' + p.gplus +
           '">' + p.gplus.replace(/https?:\/\//, '') + '</a>' : '';
@@ -363,7 +363,7 @@ SlideDeck.prototype.loadConfig_ = function(config) {
       }
     } else {
       for (var i = 0, p; p = presenters[i]; ++i) {
-        html.push(p.name + ' - ' + p.company);
+        html.push(p.name + ' — ' + p.company);
       }
       html = html.join('<br>');
       if (dataConfigContact) {
@@ -376,7 +376,7 @@ SlideDeck.prototype.loadConfig_ = function(config) {
       dataConfigPresenter.innerHTML = html;
       if (settings.eventInfo) {
         var date = settings.eventInfo.date;
-        var dateInfo = date ? ' - <time>' + date + '</time>' : '';
+        var dateInfo = date ? ' — <time>' + date + '</time>' : '';
         dataConfigPresenter.innerHTML += settings.eventInfo.title + dateInfo;
       }
     }
@@ -571,7 +571,7 @@ SlideDeck.prototype.updateSlides_ = function(opt_dontPush) {
   this.triggerSlideEvent('slideenter', curSlide);
 
 // window.setTimeout(this.disableSlideFrames_.bind(this, curSlide - 2), 301);
-// 
+//
 // this.enableSlideFrames_(curSlide - 1); // Previous slide.
 // this.enableSlideFrames_(curSlide + 1); // Current slide.
 // this.enableSlideFrames_(curSlide + 2); // Next slide.
