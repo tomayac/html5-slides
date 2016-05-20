@@ -1,6 +1,6 @@
 {
   "name": "html5-slides",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Static HTML5 slide deck originally based on the Google I/O slides.",
   "main": "index.js",
   "scripts": {
@@ -14,10 +14,21 @@
     "html5",
     "slides"
   ],
-  "author": "Thomas Steiner <steiner.thomas@gmail.com> (http://blog.tomayac.com/)",
+  "author": {
+    "name": "Thomas Steiner",
+    "email": "steiner.thomas@gmail.com",
+    "url": "http://blog.tomayac.com/"
+  },
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/tomayac/html5-slides/issues"
   },
-  "homepage": "https://github.com/tomayac/html5-slides#readme"
+  "homepage": "https://github.com/tomayac/html5-slides#readme",
+  "gitHead": "2016eff3e6bcff9b26afa7d7105a5e42a7070ad9",
+  "readme": "# HTML5 Slides\n\nStatic HTML5 slide deck originally based on the [Google I/O slides](https://code.google.com/p/io-2012-slides).\nCheck out [template.html](https://github.com/tomayac/html5-slides/blob/master/template.html)\nfor usage examples and modify the ```SLIDE_CONFIG``` object at the top of the file\nto configure some aspects of the slides.\nYou can see a [demo deck](http://tomayac.github.io/html5-slides/template.html) that illustrates the different options.\n",
+  "readmeFilename": "README.md",
+  "_id": "html5-slides@1.0.0",
+  "_shasum": "a0bde4151aa53f4a33dd1dc5dd5936a1078c21d0",
+  "_from": "git+ssh://git@github.com/tomayac/html5-slides.git",
+  "_resolved": "git+ssh://git@github.com/tomayac/html5-slides.git#2016eff3e6bcff9b26afa7d7105a5e42a7070ad9"
 }
