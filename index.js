@@ -6,7 +6,7 @@ const fs = require('fs');
 const html5Slides = {
   dump: () => {
     return new Promise((resolve, reject) => {
-      fs.readFile(__dirname + '/body.html', 'utf8', (err, data) => {
+      fs.readFile(__dirname + '/index.html', 'utf8', (err, data) => {
         if (err) {
           return reject(err);
         }

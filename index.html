@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" media="all" href="theme/css/default.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+    <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+
+    <!--{{css}}-->
+
+    <script>
+      var SLIDE_CONFIG = {
+        // Slide settings
+        settings: {
+          title: '{{title}}',
+          subtitle: '{{subtitle}}',
+          eventInfo: {
+            title: '{{event}}',
+            date: '{{date}}'
+          },
+          useBuilds: true, // Default: true. False will turn off slide animation builds.
+          usePrettify: true, // Default: true
+          enableSlideAreas: true, // Default: true. False turns off the click areas on either slide of the slides.
+          enableTouch: true, // Default: true. If touch support should enabled. Note: the device must support touch.
+          favIcon: '{{favicon}}',
+          fonts: [
+            'Open Sans:regular,semibold,italic,italicsemibold',
+            'Source Code Pro'
+          ]
+        },
+
+        // Author information
+        presenters: [{
+          name: '{{name}}',
+          company: '{{company}}',
+          gplus: '{{gplus}}',
+          twitter: '{{twitter}}',
+          www: '{{url}}',
+          github: '{{github}}'
+        }]
+      };
+    </script>
+  </head>
+  <body style="opacity: 0">
+
+    <slides class="layout-widescreen">
+
+      <slide class="title-slide segue nobackground">
+        <aside class="gdbar"><img src="images/google.svg"></aside>
+        <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+        <hgroup class="auto-fadein">
+          <h1 data-config-title><!-- populated from SLIDE_CONFIG --></h1>
+          <h2 data-config-subtitle><!-- populated from SLIDE_CONFIG --></h2>
+          <p data-config-presenter><!-- populated from SLIDE_CONFIG --></p>
+        </hgroup>
+      </slide>
+
+      <!--{{slides}}-->
+
+      <slide class="backdrop"></slide>
+
+    </slides>
+    <script src="js/modernizr-custom.js"></script>
+    <script src="js/hammer.js"></script>
+    <script src="js/prettify/prettify.js"></script>
+    <script src="js/slide-controller.js"></script>
+    <script src="js/slide-deck.js"></script>
+
+    <!--{{javaScript}}-->
+
+  </body>
+</html>

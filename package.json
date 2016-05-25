@@ -1,6 +1,6 @@
 {
   "name": "html5-slides",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Static HTML5 slide deck originally based on the Google I/O slides.",
   "main": "index.js",
   "scripts": {
@@ -30,5 +30,8 @@
   "_id": "html5-slides@1.0.0",
   "_shasum": "a0bde4151aa53f4a33dd1dc5dd5936a1078c21d0",
   "_from": "git+ssh://git@github.com/tomayac/html5-slides.git",
-  "_resolved": "git+ssh://git@github.com/tomayac/html5-slides.git#2016eff3e6bcff9b26afa7d7105a5e42a7070ad9"
+  "_resolved": "git+ssh://git@github.com/tomayac/html5-slides.git#2016eff3e6bcff9b26afa7d7105a5e42a7070ad9",
+  "dependencies": {
+    "phantom": "^2.1.2"
+  }
 }
