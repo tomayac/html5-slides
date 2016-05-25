@@ -28,7 +28,7 @@ const html5Slides = {
       })
       .then(page_ => {
         page = page_;
-        return page.open(__dirname + '/body.html');
+        return page.open(__dirname + '/index.html');
       })
       .then(status => {
         page.on('onConsoleMessage', (msg) => {
