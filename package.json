@@ -1,6 +1,6 @@
 {
   "name": "html5-slides",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Static HTML5 slide deck originally based on the Google I/O slides.",
   "main": "index.js",
   "scripts": {
@@ -10,10 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/tomayac/html5-slides.git"
   },
-  "keywords": [
-    "html5",
-    "slides"
-  ],
+  "keywords": ["html5", "slides"],
   "author": {
     "name": "Thomas Steiner",
     "email": "steiner.thomas@gmail.com",

@@ -8,7 +8,18 @@
       var cssRules = styleSheet.cssRules;
       for (var j = 0, lenJ = cssRules.length; j < lenJ; j++) {
         var cssRule = cssRules[j];
-        cssText.push(cssRule.cssText);
+        var text = cssRule.cssText;
+        // Phantom.js seems to erroneously place commas in content: rules
+        if (/content:/g.test(text)) {
+          text = text.replace(/content:(.*?);/g, function(_ignore, content) {
+            return 'content: ' + content.replace(/,/g, '') + ';';
+          });
+        }
+        // Rewrite absolute file:/// resources to relative resources
+        if (/file:\/\/\//g.test(text)) {
+          text = text.replace(/file:\/\/\/.*?\/images\//g, './images/');
+        }
+        cssText.push(text);
       }
     }
 
@@ -17,13 +28,6 @@
     var scripts = document.scripts;
     for (var k = 0, lenK = scripts.length; k < lenK; k++) {
       var script = scripts[k];
-  /*
-      // Scripts with inlined code
-      var textContent = script.textContent.trim();
-      if (textContent) {
-        jsText.push(textContent);
-      }
-  */
       // Scripts with remote source
       if (script.src) {
         var xhr = new XMLHttpRequest();
@@ -40,8 +44,6 @@
       css: cssText,
       javaScript: jsText
     };
-
-    console.log('%%%%%%', result, '%%%%%%');
 
     window.callPhantom(result);
 })();

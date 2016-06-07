@@ -35,7 +35,7 @@ const html5Slides = {
           console.log('From Phantom.js (console.log):', msg);
         });
         page.on('onCallback', (msg) => {
-          console.log('From Phantom.js (phantomCallback):', typeof msg);
+          console.log('From Phantom.js (phantomCallback): type', typeof msg);
           callbackData = msg;
         });
         return page.injectJs(__dirname + '/phantomjs/phantomjs.js');
