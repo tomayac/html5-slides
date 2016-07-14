@@ -300,7 +300,7 @@ SlideDeck.prototype.loadConfig_ = function(config) {
   }
 
   // Prettyprint. Default to on.
-  if (!!!('usePrettify' in settings) || settings.usePrettify) {
+  if (settings.usePrettify) {
     prettyPrint();
   }
 
@@ -313,7 +313,7 @@ SlideDeck.prototype.loadConfig_ = function(config) {
   }
 
   // Builds. Default to on.
-  if (!!!('useBuilds' in settings) || settings.useBuilds) {
+  if (settings.useBuilds) {
     this.makeBuildLists_();
   }
 
@@ -322,17 +322,23 @@ SlideDeck.prototype.loadConfig_ = function(config) {
     if (settings.eventInfo && settings.eventInfo.title) {
       document.title +=  ' — ' + settings.eventInfo.title;
     }
-    document.querySelector('[data-config-title]').innerHTML = settings.title;
+    if (document.querySelector('[data-config-title]')) {
+      Array.prototype.slice.call(document.querySelectorAll('[data-config-title]')).forEach(function(title) {
+        title.innerHTML = settings.title;
+      });
+    }
   }
 
   if (settings.subtitle) {
-    document.querySelector('[data-config-subtitle]').innerHTML = settings.subtitle;
+    if (document.querySelector('[data-config-subtitle]')) {
+      Array.prototype.slice.call(document.querySelectorAll('[data-config-subtitle]')).forEach(function(subtitle) {
+        subtitle.innerHTML = settings.subtitle;
+      });
+    }
   }
 
   if (this.config_.presenters) {
     var presenters = this.config_.presenters;
-    var dataConfigContact = document.querySelector('[data-config-contact]');
-
     var html = [];
     if (presenters.length == 1) {
       var p = presenters[0];
@@ -357,33 +363,39 @@ SlideDeck.prototype.loadConfig_ = function(config) {
           '">' + p.github.replace(/https?:\/\//, '') + '</a>' : '';
 
       var html2 = [gplus, twitter, www, github].join('<br>');
-
-      if (dataConfigContact) {
-        dataConfigContact.innerHTML = html2;
+      if (document.querySelector('[data-config-contact]')) {
+        Array.prototype.slice.call(document.querySelectorAll('[data-config-contact]')).forEach(function(dataConfigContact) {
+          dataConfigContact.innerHTML = html2;
+        });
       }
     } else {
       for (var i = 0, p; p = presenters[i]; ++i) {
         html.push(p.name + ' — ' + p.company);
       }
       html = html.join('<br>');
-      if (dataConfigContact) {
-        dataConfigContact.innerHTML = html;
+      if (document.querySelector('[data-config-contact]')) {
+        Array.prototype.slice.call(document.querySelectorAll('[data-config-contact]')).forEach(function(dataConfigContact) {
+          dataConfigContact.innerHTML = html;
+        });
       }
     }
 
-    var dataConfigPresenter = document.querySelector('[data-config-presenter]');
-    if (dataConfigPresenter) {
-      dataConfigPresenter.innerHTML = html;
-      if (settings.eventInfo) {
-        var date = settings.eventInfo.date;
-        var dateInfo = date ? ' — <time>' + date + '</time>' : '';
-        dataConfigPresenter.innerHTML += settings.eventInfo.title + dateInfo;
-      }
+    if (document.querySelector('[data-config-presenter]')) {
+      Array.prototype.slice.call(document.querySelectorAll('[data-config-presenter]')).forEach(function(dataConfigPresenter) {
+        if (dataConfigPresenter) {
+          dataConfigPresenter.innerHTML = html;
+          if (settings.eventInfo) {
+            var date = settings.eventInfo.date;
+            var dateInfo = date ? ' — <time>' + date + '</time>' : '';
+            dataConfigPresenter.innerHTML += settings.eventInfo.title + dateInfo;
+          }
+        }
+      });
     }
   }
 
   /* Left/Right tap areas. Default to including. */
-  if (!!!('enableSlideAreas' in settings) || settings.enableSlideAreas) {
+  if (settings.enableSlideAreas) {
     var el = document.createElement('div');
     el.classList.add('slide-area');
     el.id = 'prev-slide-area';
@@ -397,8 +409,7 @@ SlideDeck.prototype.loadConfig_ = function(config) {
     this.container.appendChild(el);
   }
 
-  if (Modernizr.touch && (!!!('enableTouch' in settings) ||
-      settings.enableTouch)) {
+  if (Modernizr.touch && settings.enableTouch) {
     var self = this;
 
     // Note: this prevents mobile zoom in/out but prevents iOS from doing
