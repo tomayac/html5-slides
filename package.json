@@ -1,6 +1,6 @@
 {
   "name": "html5-slides",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Static HTML5 slide deck originally based on the Google I/O slides.",
   "main": "index.js",
   "scripts": {
