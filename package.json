@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/tomayac/html5-slides#readme",
   "dependencies": {
-    "phantom": "^4.0.4"
+    "phantom": "^6.3.0"
   },
   "engines": {
     "node": ">=4.8.x",
